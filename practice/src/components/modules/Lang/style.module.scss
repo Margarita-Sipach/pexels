@@ -1,0 +1,17 @@
+.block{
+	display: flex;
+	font-size: 18px;
+	@media (max-width: 770px) {
+		font-size: 16px;
+	}
+	&__item{
+		margin: 0 2px;
+	}
+}
+
+.lang{
+	cursor: pointer;
+	&__active{
+		text-decoration: underline;
+	}
+}
