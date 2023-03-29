@@ -1,0 +1,12 @@
+.select{
+	width: 150px;
+	padding: 10px 15px;
+	border: 2px #0000008c solid;
+	border-radius: 5px;
+	text-transform: capitalize;
+	@media (max-width: 480px) {
+		width: 130px;
+		padding: 5px 7px;
+		font-size: 12px;
+	}
+}
