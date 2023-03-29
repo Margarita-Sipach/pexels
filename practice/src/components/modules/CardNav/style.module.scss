@@ -1,0 +1,15 @@
+.icon{
+	height: 25px;
+	width: 25px;
+	margin-left: 10px;
+	fill: #dfdcdcc6;
+	cursor: pointer;
+
+	&:hover{
+		fill: #fff;
+	}
+}
+
+.nav{
+	display: flex;
+}
