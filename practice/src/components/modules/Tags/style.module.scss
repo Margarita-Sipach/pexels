@@ -1,0 +1,27 @@
+
+.tags{
+	display: flex;
+}
+	.title{
+		color:#dfdcdcc6;
+		margin-right: 10px;
+	}
+
+	.container{
+		display: flex;
+		align-items: center;
+		flex-wrap: wrap;
+
+		:last-child::after{
+			content: "";
+		}
+
+		>*::after{
+			content: ",";
+		}
+	}
+
+	.item{
+		margin-right: 5px;
+		line-height: 10px;
+	}
