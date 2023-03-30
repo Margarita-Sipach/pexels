@@ -7,7 +7,7 @@ import { photoType } from '../../../type';
 export const Card = ({ id, src, alt, photographer, photographer_url }: photoType) => {
   return (
     <div className={classes.card}>
-      <img className={classes.img} src={src.original} alt={alt} />
+      <img className={classes.img} src={src.large} alt={alt} />
       <div className={classes.baffle}>
         <Avatar img="" name={photographer} link={photographer_url}></Avatar>
         <CardNav id={id} src={src.original} />
