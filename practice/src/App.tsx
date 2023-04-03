@@ -1,14 +1,11 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { Header } from './components/modules/Header';
 import { Outlet } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import { settingsData } from './data';
-import { langSettingsType, settingsDataType } from './type';
 import { createStore } from 'redux';
-interface State {
-  settings: string;
-}
-const defaultState: State = {
+
+const defaultState = {
   settings: settingsData[(localStorage.getItem('lang') || 'en') as keyof object],
 };
 

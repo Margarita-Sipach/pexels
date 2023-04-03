@@ -11,12 +11,8 @@ export const Select = ({ values, title, onChange }: TagProps) => {
   return (
     <select
       className={classes.select}
-      onChange={(e) =>
-        onChange(
-          (e.target as HTMLSelectElement).value !== title
-            ? (e.target as HTMLSelectElement).value
-            : ''
-        )
+      onChange={(e: React.ChangeEvent<HTMLSelectElement>) =>
+        onChange(e.target.value !== title ? e.target.value : '')
       }
     >
       <option key={title} value={title}>

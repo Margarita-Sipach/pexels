@@ -21,7 +21,7 @@ export const useMainPhoto = () => {
 };
 
 export const useCategoriesList = (categories: { [key: string]: string }) => {
-  const [currentCategoriesIds, setCurrentCategoriesIds] = useState([] as string[]);
+  const [currentCategoriesIds, setCurrentCategoriesIds] = useState<string[]>([]);
   useEffect(() => {
     const arr = Object.entries(categories);
     const list = new Set<string>();
@@ -33,8 +33,11 @@ export const useCategoriesList = (categories: { [key: string]: string }) => {
   return currentCategoriesIds;
 };
 
-export const useNewPhotos = (id = '', params = { size: '', orientation: '' }) => {
-  const [allPhotos, setAllPhotos] = useState([] as photoType[]);
+export const useNewPhotos = (
+  id = '',
+  params = { size: '', orientation: '' }
+): [photoType[], boolean] => {
+  const [allPhotos, setAllPhotos] = useState<photoType[]>([]);
   const [isLoading, setIsLoading] = useState(true);
   const [currentPage, setCurrentPage] = useState(1);
 
