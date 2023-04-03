@@ -1,17 +1,17 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import classes from './style.module.scss';
 
 import { Tags } from '../Tags';
 import { SearchInput } from '../../ui/inputs/SearchInput';
-import { getPhotos } from '../../../api';
-import { getRandomNumber } from '../../../functions';
-import { defaultPhotoInfo } from '../../../data';
+import { useSelector } from 'react-redux';
+import { useMainPhoto } from '../../../hooks';
+import { settingsData } from '../../../data';
+import { langSettingsType } from '../../../type';
 
 export const MainSection = () => {
-  const [photoInfo, setPhotoInfo] = useState(defaultPhotoInfo);
-  useEffect(() => {
-    getPhotos().then((item) => setPhotoInfo(item[getRandomNumber(0, 15)]));
-  }, []);
+  const settings = useSelector((state: { settings: langSettingsType }) => state.settings);
+  const photoInfo = useMainPhoto();
+
   return (
     <section className={classes.section}>
       <img
@@ -20,9 +20,7 @@ export const MainSection = () => {
         className={classes.img}
       />
       <div className={classes.content}>
-        <h1 className={classes.title}>
-          The best free stock photos, royalty free images & videos shared by creators.
-        </h1>
+        <h1 className={classes.title}>{settings.mainSection.title}</h1>
         <SearchInput />
         <Tags />
       </div>
@@ -32,7 +30,7 @@ export const MainSection = () => {
         target="_blank"
         rel="noreferrer"
       >
-        Photo by: <span>{photoInfo.photographer}</span>
+        {settings.mainSection.author}: <span>{photoInfo.photographer}</span>
       </a>
     </section>
   );

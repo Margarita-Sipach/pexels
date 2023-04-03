@@ -3,21 +3,28 @@ import { Input } from '../Input';
 import classes from './style.module.scss';
 import { AiOutlineSearch } from 'react-icons/ai';
 import { useNavigate } from 'react-router-dom';
-import { categories } from '../../../../data';
+import { settingsData } from '../../../../data';
+import { useSelector } from 'react-redux/es/hooks/useSelector';
+import { langSettingsType } from '../../../../type';
 
 export const SearchInput = () => {
   const [seacrhValue, setSearchValue] = useState('');
   const navigate = useNavigate();
+  const settings = useSelector((state: { settings: langSettingsType }) => state.settings);
 
   const handleNavigate = () => {
-    categories.some((item) => item.en === seacrhValue)
-      ? navigate(`category/${seacrhValue}`)
-      : navigate('not-found');
+    if (seacrhValue === '') return;
+    const field = [
+      ...Object.entries(settingsData.ru.mainSection.tags.categories),
+      ...Object.entries(settingsData.en.mainSection.tags.categories),
+    ].find((item) => item[1] === seacrhValue);
+
+    field && field[0] ? navigate(`/pixels/${field[0]}`) : navigate('/pixels/not-found');
   };
 
   return (
     <Input
-      attributes={{ placeholder: 'Search for free photos' }}
+      attributes={{ placeholder: settings.mainSection.placeholder }}
       value={seacrhValue}
       onChange={setSearchValue}
       onKeyDown={(code) => code === 'Enter' && handleNavigate()}

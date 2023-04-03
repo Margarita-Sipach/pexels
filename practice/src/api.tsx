@@ -10,15 +10,12 @@ export const getPhotos = async (page = 1) => {
   return await res.data.photos;
 };
 
-export const getPhotosById = async (
-  id: string,
-  params = { sizes: '', orientations: '' },
-  page = 1
-) => {
+export const getPhotosById = async (id = '', params = { size: '', orientation: '' }, page = 1) => {
   const res = await axios.get(
-    `${API}search?query=${id}&page=${page}
-		${params.orientations && `&orientation=${params.orientations.toLowerCase()}`}
-		${params.sizes && `&size=${params.sizes.toLowerCase()}`}`,
+    `${API}search?query=${id}&page=${page}${Object.entries(params).reduce(
+      (acc, item) => (item[1] ? acc + `&${item[0]}=${item[1].toLowerCase()}` : acc),
+      ''
+    )}`,
     {
       headers: { Accept: 'application/json', Authorization: API_KEY },
     }

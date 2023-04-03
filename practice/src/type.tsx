@@ -20,3 +20,33 @@ export interface photoType {
   liked: boolean;
   alt: string;
 }
+
+export interface settingsDataType {
+  en: langSettingsType;
+  ru: langSettingsType;
+}
+
+export interface langSettingsType {
+  activeLang: string;
+  header: {
+    lang: {
+      ru: string;
+      en: string;
+    };
+  };
+  mainSection: {
+    title: string;
+    author: string;
+    tags: { title: string; categories: { [key: string]: string } };
+    placeholder: string;
+  };
+  gallerySection: {
+    title: string;
+    filter: filterType[];
+  };
+}
+
+interface filterType {
+  title: string;
+  values: { [key: string]: string };
+}

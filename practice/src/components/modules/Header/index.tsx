@@ -1,5 +1,5 @@
 import { Logo } from '../../ui/Logo';
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import classes from './style.module.scss';
 import { SearchInput } from '../../ui/inputs/SearchInput';
 import { Lang } from '../Lang';

@@ -1,30 +1,32 @@
+import { settingsData } from '../../../data';
 import React, { useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux/es/exports';
 import classes from './style.module.scss';
-
-const langs = ['ru', 'en'];
+import { langSettingsType } from '../../../type';
 
 export const Lang = () => {
-  const [activeLang, setActiveLang] = useState('en');
-
-  const handleClick = (e: React.MouseEvent) => {
-    setActiveLang((e.target as HTMLElement).textContent || 'en');
-  };
+  const settings = useSelector((state: { settings: langSettingsType }) => state.settings);
+  const dispatch = useDispatch();
 
   return (
     <div className={classes.block}>
-      {langs.map((item, index) => (
-        <>
+      {Object.entries(settings.header.lang).map((item, index) => (
+        <div key={item[0]}>
           <span
-            key={item}
+            id={item[0]}
             className={`${classes.block__item} ${classes.lang} ${
-              activeLang === item && classes.lang__active
+              settings.activeLang === item[0] && classes.lang__active
             }`}
-            onClick={(e: React.MouseEvent) => handleClick(e)}
+            onClick={(e: React.MouseEvent) => {
+              const newLang = (e.target as HTMLElement).id;
+              dispatch({ type: newLang });
+              localStorage.setItem('lang', newLang);
+            }}
           >
-            {item}
+            {item[1]}
           </span>
           {!index && '/'}
-        </>
+        </div>
       ))}
     </div>
   );

@@ -1,26 +1,21 @@
-import { categories } from '../../../data';
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import classes from './style.module.scss';
-import { getRandomNumber } from '../../../functions';
 import { Link } from 'react-router-dom';
+import { useSelector } from 'react-redux';
+import { useCategoriesList } from '../../../hooks';
+import { langSettingsType } from '../../../type';
 
 export const Tags = () => {
-  const [currentCategories, setCurrentCategories] = useState([] as string[]);
-  useEffect(() => {
-    const list = new Set<string>();
-    while (list.size !== 7) {
-      list.add(categories[getRandomNumber(0, categories.length)].en);
-    }
-    setCurrentCategories(Array.from(list));
-  }, []);
+  const settings = useSelector((state: { settings: langSettingsType }) => state.settings);
+  const currentCategoriesIds = useCategoriesList(settings.mainSection.tags.categories);
 
   return (
     <div className={classes.tags}>
-      <div className={classes.title}>Trendling:</div>
+      <div className={classes.title}>{settings.mainSection.tags.title}:</div>
       <div className={classes.container}>
-        {currentCategories.map((item) => (
-          <Link key={item} to={`/category/${item}`} className={classes.item}>
-            {item}
+        {currentCategoriesIds.map((item) => (
+          <Link key={item} to={`/pixels/${item}`} className={classes.item}>
+            {settings.mainSection.tags.categories[item as keyof object]}
           </Link>
         ))}
       </div>
