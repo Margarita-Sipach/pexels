@@ -1,3 +1,5 @@
+import original from '../public/bg.jpeg';
+
 export const categories = [
   {
     en: 'winter',
@@ -162,32 +164,10 @@ export const categories = [
 ];
 
 export const defaultPhotoInfo = {
-  id: 3573351,
-  width: 3066,
-  height: 3968,
-  url: 'https://www.pexels.com/photo/trees-during-day-3573351/',
-  photographer: 'Lukas Rodriguez',
-  photographer_url: 'https://www.pexels.com/@lukas-rodriguez-1845331',
-  photographer_id: 1845331,
-  avg_color: '#374824',
-  src: {
-    original: 'https://images.pexels.com/photos/3573351/pexels-photo-3573351.png',
-    large2x:
-      'https://images.pexels.com/photos/3573351/pexels-photo-3573351.png?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
-    large:
-      'https://images.pexels.com/photos/3573351/pexels-photo-3573351.png?auto=compress&cs=tinysrgb&h=650&w=940',
-    medium:
-      'https://images.pexels.com/photos/3573351/pexels-photo-3573351.png?auto=compress&cs=tinysrgb&h=350',
-    small:
-      'https://images.pexels.com/photos/3573351/pexels-photo-3573351.png?auto=compress&cs=tinysrgb&h=130',
-    portrait:
-      'https://images.pexels.com/photos/3573351/pexels-photo-3573351.png?auto=compress&cs=tinysrgb&fit=crop&h=1200&w=800',
-    landscape:
-      'https://images.pexels.com/photos/3573351/pexels-photo-3573351.png?auto=compress&cs=tinysrgb&fit=crop&h=627&w=1200',
-    tiny: 'https://images.pexels.com/photos/3573351/pexels-photo-3573351.png?auto=compress&cs=tinysrgb&dpr=1&fit=crop&h=200&w=280',
-  },
-  liked: false,
-  alt: 'Brown Rocks During Golden Hour',
+  alt: '',
+  photographer: 'Ahmed  ツ',
+  photographer_url: 'https://www.pexels.com/@mutecevvil',
+  src: { original: original },
 };
 
 export const settingsData = {
@@ -337,58 +317,3 @@ export const settingsData = {
     },
   },
 };
-// const langs = [
-//   {
-//     ru: 'англ',
-//     en: 'en',
-//   },
-//   {
-//     ru: 'рус',
-//     en: 'ru',
-//   },
-// ];
-
-// const title = {
-//   en: 'The best free stock photos, royalty free images & videos shared by creators.',
-//   ru: 'Лучшие бесплатные стоковые фото, изображения без роялти и видео от талантливых авторов.',
-// };
-
-// const author = {
-//   en: 'Photo by',
-//   ru: 'Автор фото',
-// };
-
-// const trendling = {
-//   en: 'Trendling',
-//   ru: 'Тенденции',
-// };
-// const placeholder = {
-//   en: 'Search for free photos',
-//   ru: 'Искать фото бесплатно',
-// };
-// const title = {
-//   en: 'Free Stock Photos',
-//   ru: 'Бесплатные стоковые фото',
-// };
-
-// const sizesParams = {
-//   en: {
-//     title: 'All Sizes',
-//     values: ['large', 'medium', 'small'],
-//   },
-//   ru: {
-//     title: 'Все размеры',
-//     values: ['Большой', 'Средний', 'Маленький'],
-//   },
-// };
-
-// const orientationsParams = {
-//   en: {
-//     title: 'All Orientations',
-//     values: ['landscape', 'portrait', 'square'],
-//   },
-//   ru: {
-//     title: 'Все ориентации',
-//     values: ['Горизонтальная', 'Вертикальная', 'Квадратное'],
-//   },
-// };
