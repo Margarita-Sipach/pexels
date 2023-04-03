@@ -4,7 +4,7 @@ import classes from './style.module.scss';
 
 export const Logo = () => {
   return (
-    <Link to="/pixels" className={classes.logo}>
+    <Link to="/pexels" className={classes.logo}>
       <svg viewBox="0 0 130.318 50">
         <g transform="translate(-3894 2762)">
           <rect

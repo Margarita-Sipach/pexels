@@ -9,7 +9,7 @@ import { App } from './App';
 
 const router = createBrowserRouter([
   {
-    path: '/pixels',
+    path: '/pexels',
     element: <App />,
     children: [
       {
@@ -17,11 +17,11 @@ const router = createBrowserRouter([
         element: <MainPage />,
       },
       {
-        path: '/pixels/not-found',
+        path: '/pexels/not-found',
         element: <EmptyPage />,
       },
       {
-        path: '/pixels/:id',
+        path: '/pexels/:id',
         element: <CategoryPage />,
       },
     ],

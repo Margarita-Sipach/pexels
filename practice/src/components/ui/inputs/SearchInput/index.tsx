@@ -19,7 +19,7 @@ export const SearchInput = () => {
       ...Object.entries(settingsData.en.mainSection.tags.categories),
     ].find((item) => item[1] === seacrhValue);
 
-    field && field[0] ? navigate(`/pixels/${field[0]}`) : navigate('/pixels/not-found');
+    field && field[0] ? navigate(`/pexels/${field[0]}`) : navigate('/pexels/not-found');
   };
 
   return (
