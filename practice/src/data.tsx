@@ -231,6 +231,7 @@ export const settingsData = {
     },
     gallerySection: {
       title: 'Free Stock Photos',
+      noImages: 'No images found',
       filter: [
         {
           title: 'All Sizes',
@@ -304,6 +305,7 @@ export const settingsData = {
     },
     gallerySection: {
       title: 'Бесплатные стоковые фото',
+      noImages: 'Фото не найдены',
       filter: [
         {
           title: 'Все размеры',

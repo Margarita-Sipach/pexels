@@ -1,6 +1,5 @@
 import { CategoryPage } from './components/pages/CategoryPage';
 import { MainPage } from './components/pages/MainPage';
-import { EmptyPage } from './components/pages/EmptyPage';
 import React from 'react';
 import { createRoot } from 'react-dom/client';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
@@ -15,10 +14,6 @@ const router = createBrowserRouter([
       {
         index: true,
         element: <MainPage />,
-      },
-      {
-        path: '/pexels/not-found',
-        element: <EmptyPage />,
       },
       {
         path: '/pexels/:id',

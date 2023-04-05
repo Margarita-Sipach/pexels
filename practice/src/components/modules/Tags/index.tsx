@@ -14,7 +14,11 @@ export const Tags = () => {
       <div className={classes.title}>{settings.mainSection.tags.title}:</div>
       <div className={classes.container}>
         {currentCategoriesIds.map((item) => (
-          <Link key={item} to={`/pexels/${item}`} className={classes.item}>
+          <Link
+            key={item}
+            to={`/pexels/${settings.mainSection.tags.categories[item as keyof object]}`}
+            className={classes.item}
+          >
             {settings.mainSection.tags.categories[item as keyof object]}
           </Link>
         ))}

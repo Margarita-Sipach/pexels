@@ -10,7 +10,7 @@ import { langSettingsType } from '../../../type';
 
 export const MainSection = () => {
   const settings = useSelector((state: { settings: langSettingsType }) => state.settings);
-  const photoInfo = useMainPhoto();
+  const photoInfo = useMainPhoto(settings.activeLang);
 
   return (
     <section className={classes.section}>

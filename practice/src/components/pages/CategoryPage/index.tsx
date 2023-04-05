@@ -9,13 +9,12 @@ import { langSettingsType } from '../../../type';
 
 export const CategoryPage = () => {
   const { id } = useParams();
-  const settings = useSelector((state: { settings: langSettingsType }) => state.settings);
   const [filterParams, setFilterParams] = useState({ size: '', orientation: '' });
 
   return (
     <div className={`page wrapper ${classes.page}`}>
       <div className={classes.filter}>
-        <span className={classes.title}>{settings.mainSection.tags.categories[id || '']}</span>
+        <span className={classes.title}>{id}</span>
         <Filter onParamsChange={setFilterParams} />
       </div>
       <GallerySection id={id} params={filterParams} />

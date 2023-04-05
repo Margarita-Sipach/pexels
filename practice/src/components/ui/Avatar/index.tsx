@@ -8,7 +8,7 @@ interface AvatarProps {
 }
 export const Avatar = ({ name, link }: AvatarProps) => {
   return (
-    <a className={classes.avatar} href={link}>
+    <a className={classes.avatar} href={link} target="_blank" rel="noreferrer">
       {/* <img className={classes.img} src={img} alt="avatar" /> */}
       <div className={classes.img}></div>
       <span className={classes.name}>{name}</span>

@@ -12,10 +12,10 @@ export const useScroll = (fn: () => void) => {
   }, [fn]);
 };
 
-export const useMainPhoto = () => {
+export const useMainPhoto = (lang = 'en') => {
   const [photoInfo, setPhotoInfo] = useState(defaultPhotoInfo);
   useEffect(() => {
-    getPhotos().then((item) => setPhotoInfo(item[getRandomNumber(0, 15)]));
+    getPhotos(1, lang).then((item) => setPhotoInfo(item[getRandomNumber(0, 15)]));
   }, []);
   return photoInfo;
 };
@@ -35,28 +35,32 @@ export const useCategoriesList = (categories: { [key: string]: string }) => {
 
 export const useNewPhotos = (
   id = '',
-  params = { size: '', orientation: '' }
+  params = { size: '', orientation: '' },
+  lang = 'en'
 ): [photoType[], boolean] => {
   const [allPhotos, setAllPhotos] = useState<photoType[]>([]);
   const [isLoading, setIsLoading] = useState(true);
   const [currentPage, setCurrentPage] = useState(1);
+  const [isChange, setIsChange] = useState(false);
 
   useEffect(() => {
-    setIsLoading(true);
-    (id ? getPhotosById(id, params, 1) : getPhotos(1)).then((item) => {
-      setAllPhotos(item);
-      setCurrentPage(1);
-      setIsLoading(false);
-    });
-  }, [params.size, params.orientation, id]);
+    console.log(params);
+    document.documentElement.scrollTop = 0;
+    setAllPhotos([]);
+    setCurrentPage(1);
+    setIsChange(!isChange);
+  }, [params.size, params.orientation, id, lang]);
 
   useEffect(() => {
+    console.log(2);
     setIsLoading(true);
-    (id ? getPhotosById(id, params, currentPage) : getPhotos(currentPage)).then((item) => {
-      setAllPhotos([...allPhotos, ...item]);
-      setIsLoading(false);
-    });
-  }, [currentPage]);
+    (id ? getPhotosById(id, params, currentPage, lang) : getPhotos(currentPage, lang)).then(
+      (item) => {
+        setAllPhotos([...allPhotos, ...item]);
+        setIsLoading(false);
+      }
+    );
+  }, [currentPage, isChange]);
 
   const handleScroll = () => {
     const element = document.documentElement;

@@ -42,6 +42,7 @@ export interface langSettingsType {
   };
   gallerySection: {
     title: string;
+    noImages: string;
     filter: filterType[];
   };
 }
