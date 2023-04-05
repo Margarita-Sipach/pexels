@@ -1,5 +1,4 @@
-import { settingsData } from '../../../data';
-import React, { useState } from 'react';
+import React from 'react';
 import { useDispatch, useSelector } from 'react-redux/es/exports';
 import classes from './style.module.scss';
 import { langSettingsType } from '../../../type';

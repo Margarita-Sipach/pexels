@@ -2,7 +2,6 @@ import { Select } from '../../../components/ui/Select';
 import React, { useEffect, useState } from 'react';
 import classes from './style.module.scss';
 import { useSelector } from 'react-redux/es/hooks/useSelector';
-import { settingsData } from '../../../data';
 import { langSettingsType } from '../../../type';
 
 interface FilterProps {

@@ -1,9 +1,8 @@
 import { getPhotos, getPhotosById } from './api';
-import { categories, defaultPhotoInfo } from './data';
+import { defaultPhotoInfo } from './data';
 import { getRandomNumber } from './functions';
 import { useEffect, useState } from 'react';
 import { photoType } from './type';
-import { useSelector } from 'react-redux';
 
 export const useScroll = (fn: () => void) => {
   useEffect(() => {
@@ -44,7 +43,6 @@ export const useNewPhotos = (
   const [isChange, setIsChange] = useState(false);
 
   useEffect(() => {
-    console.log(params);
     document.documentElement.scrollTop = 0;
     setAllPhotos([]);
     setCurrentPage(1);
@@ -52,7 +50,6 @@ export const useNewPhotos = (
   }, [params.size, params.orientation, id, lang]);
 
   useEffect(() => {
-    console.log(2);
     setIsLoading(true);
     (id ? getPhotosById(id, params, currentPage, lang) : getPhotos(currentPage, lang)).then(
       (item) => {

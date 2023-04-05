@@ -1,11 +1,9 @@
 import React from 'react';
 import classes from './style.module.scss';
-
 import { Tags } from '../Tags';
 import { SearchInput } from '../../ui/inputs/SearchInput';
 import { useSelector } from 'react-redux';
 import { useMainPhoto } from '../../../hooks';
-import { settingsData } from '../../../data';
 import { langSettingsType } from '../../../type';
 
 export const MainSection = () => {

@@ -3,9 +3,6 @@ import classes from './style.module.scss';
 import { useParams } from 'react-router-dom';
 import { GallerySection } from '../../../components/modules/GallerySection';
 import { Filter } from '../../../components/modules/Filter';
-import { settingsData } from '../../../data';
-import { useSelector } from 'react-redux';
-import { langSettingsType } from '../../../type';
 
 export const CategoryPage = () => {
   const { id } = useParams();
